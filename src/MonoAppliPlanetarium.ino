@@ -5,7 +5,7 @@
 //#define SENSER 2
 #define LED 13
 
-#define THRESHOLD 1000
+#define THRESHOLD (9000)
 
 int ledValue = LOW;
 
@@ -35,7 +35,7 @@ void loop() {
   long sensed_total =  cs_4_2.capSense(30);
 
   // DEBUG
-  Serial.println(sensed_total);
+//Serial.println(sensed_total);
 
   current = sensed_total > THRESHOLD;
   if( current ){
@@ -45,14 +45,12 @@ void loop() {
       previous = current;
 
       digitalWrite(LED,HIGH);
-      delay(250);
+      delay(50);
     }
   }
   else{
     previous = false;
   }
-    
-  delay(100);
 }
 
 
