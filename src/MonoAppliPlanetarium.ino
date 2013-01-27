@@ -32,13 +32,12 @@ void loop() {
   static boolean previous = false;
 
   digitalWrite(LED,LOW);  
-  long start = millis();
-  long total =  cs_4_2.capSense(30);
+  long sensed_total =  cs_4_2.capSense(30);
 
   // DEBUG
-  Serial.println(total);
+  Serial.println(sensed_total);
 
-  current = total > THRESHOLD;
+  current = sensed_total > THRESHOLD;
   if( current ){
     if( !previous ){
       Serial.println("1");
@@ -53,10 +52,8 @@ void loop() {
     previous = false;
   }
     
-//client.println("0");
   delay(100);
 }
-
 
 
 
