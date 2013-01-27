@@ -5,6 +5,8 @@
 //#define SENSER 2
 #define LED 13
 
+#define THRESHOLD 1000
+
 int ledValue = LOW;
 
 //CapSense
@@ -36,7 +38,7 @@ void loop() {
   // DEBUG
   Serial.println(total);
 
-  current = total > 1000;
+  current = total > THRESHOLD;
   if( current ){
     if( !previous ){
       Serial.println("1");
